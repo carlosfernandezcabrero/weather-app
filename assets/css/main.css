@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-normal text-lg bg-background text-neutral-300 max-w-screen-xl mx-auto;
+  }
+
+  #__nuxt {
+    @apply flex flex-col min-h-screen;
+  }
+
+  header,
+  main {
+    @apply mx-2;
+  }
+
+  main {
+    @apply flex-1;
+  }
+
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23c8e6e8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath stroke='none' d='M0 0h24v24H0z'/%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1.5rem;
+
+    @apply pr-12 py-2;
+  }
+}
