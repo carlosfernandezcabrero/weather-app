@@ -2,9 +2,7 @@
   <Panel class="flex-1">
     <PanelTitle>{{ longFormatDate(lastUpdated) }}</PanelTitle>
 
-    <ul
-      class="flex flex-col sm:flex-row gap-y-12 gap-x-20 justify-center items-center sm:items-end"
-    >
+    <ul class="flex flex-col sm:flex-row sm:items-end sm:gap-x-20 gap-y-8">
       <li>
         <img
           :src="`/images/${WEATHER_CODES[dayCondition.code]}.webp`"
@@ -15,12 +13,11 @@
         />
         <h4 class="mt-1 text-center">{{ dayCondition.text }}</h4>
       </li>
-
       <li>
-        <p class="text-5xl text-neutral-100/90">
+        <p class="text-5xl text-neutral-100/90 text-center">
           {{ getDisplayTemperature(tempUnit, feelsLikeC, feelsLikeF) }}
         </p>
-        <h4 class="mt-8 text-center">Sensación térmica</h4>
+        <h4 class="text-center mt-1 sm:mt-8">Sensación térmica</h4>
       </li>
     </ul>
 
@@ -34,8 +31,8 @@
 </template>
 
 <script setup>
-import { longFormatDate } from '~/utils/datetime'
 import { STATES, WEATHER_CODES } from '~/constants'
+import { longFormatDate } from '~/utils/datetime'
 
 defineProps([
   'lastUpdated',
