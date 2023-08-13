@@ -1,8 +1,8 @@
 <template>
   <PageHeader />
 
-  <main role="main" class="mt-6 flex flex-col gap-y-24">
-    <div v-if="location">
+  <main role="main" class="mt-6">
+    <div v-if="location" class="flex flex-col gap-y-24">
       <CurrentDaySection />
       <Forecast />
     </div>
