@@ -17,6 +17,4 @@
 
 <script setup>
 defineProps(['locationString'])
-
-console.log('map')
 </script>
