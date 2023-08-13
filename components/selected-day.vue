@@ -5,8 +5,8 @@
         {{ mediumFormatDate(dateEpoch * 1000) }}
       </PanelTitle>
 
-      <ul class="flex justify-center items-end gap-x-20">
-        <li class="text-center">
+      <ul class="flex flex-col sm:flex-row sm:items-end sm:gap-x-20 gap-y-8">
+        <li>
           <img
             :src="`/images/${WEATHER_CODES[dayCondition.code]}.webp`"
             alt="imagen clima"
@@ -14,34 +14,48 @@
             width="100"
             class="mx-auto"
           />
-          <h4 class="mt-1">{{ dayCondition.text }}</h4>
+          <h4 class="mt-1 text-center">{{ dayCondition.text }}</h4>
         </li>
-        <li class="text-center">
-          <p class="text-5xl text-neutral-100/90">
+        <li>
+          <p class="text-5xl text-neutral-100/90 text-center">
             {{ getDisplayTemperature(tempUnit, avgTempC, avgTempF) }}
           </p>
-          <h4 class="mt-8">Temperatura media del día</h4>
+          <h4 class="text-center mt-1 sm:mt-8">Temperatura media</h4>
         </li>
       </ul>
 
-      <ul class="flex justify-between gap-x-8">
+      <ul class="flex flex-col gap-y-2 md:flex-row md:gap-x-8">
         <li>
           <p>
             Temperatura maxima:
-            {{ getDisplayTemperature(tempUnit, maxTempC, maxTempF) }}
+            <span>{{
+              getDisplayTemperature(tempUnit, maxTempC, maxTempF)
+            }}</span>
           </p>
           <p>
             Temperatura minima:
-            {{ getDisplayTemperature(tempUnit, minTempC, minTempF) }}
+            <span>{{
+              getDisplayTemperature(tempUnit, minTempC, minTempF)
+            }}</span>
           </p>
         </li>
         <li>
-          <p>Probabilidad de lluvia: {{ chanceOfRain }} %</p>
-          <p>Probabilidad de nieve: {{ chanceOfSnow }} %</p>
+          <p>
+            Probabilidad de lluvia:
+            <span>{{ chanceOfRain }} %</span>
+          </p>
+          <p>
+            Probabilidad de nieve:
+            <span>{{ chanceOfSnow }} %</span>
+          </p>
         </li>
         <li>
-          <p>Viento: {{ maxWind }} km/h</p>
-          <p>Humedad: {{ humidity }} %</p>
+          <p>
+            Viento: <span>{{ maxWind }} km/h</span>
+          </p>
+          <p>
+            Humedad: <span>{{ humidity }} %</span>
+          </p>
         </li>
       </ul>
 
