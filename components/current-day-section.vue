@@ -1,7 +1,7 @@
 <template>
   <section class="flex flex-col lg:flex-row gap-y-8 gap-x-8">
-    <CurrentDayInfo v-bind="data" />
     <LocationInfo :location-string="locationString" />
+    <CurrentDayInfo v-bind="data" />
   </section>
 </template>
 
