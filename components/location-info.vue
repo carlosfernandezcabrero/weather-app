@@ -11,9 +11,7 @@
         <span class="text-xl text-neutral-100">{{ locationString }}</span>
       </p>
     </header>
-    <ClientOnly>
-      <Map class="h-[25rem]" />
-    </ClientOnly>
+    <Map class="h-[25rem]" />
   </Panel>
 </template>
 
