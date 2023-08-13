@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-normal text-lg bg-background text-neutral-300 max-w-screen-xl mx-auto;
+    @apply font-normal text-lg bg-background text-neutral-300 mx-auto;
   }
 
   #__nuxt {

@@ -1,8 +1,8 @@
 <template>
-  <PageHeader />
+  <PageHeader class="max-w-screen-xl w-full mx-auto" />
 
   <main role="main" class="mt-6">
-    <div v-if="location" class="flex flex-col gap-y-24">
+    <div v-if="location" class="flex flex-col gap-y-24 max-w-screen-xl mx-auto">
       <CurrentDaySection />
       <Forecast />
     </div>
@@ -20,7 +20,9 @@
     </div>
   </main>
 
-  <footer class="py-12"></footer>
+  <footer class="py-12 text-center bg-primary mt-32 w-full">
+    <p>Iconos de <a href="https://icons8.com/" target="_blank">Icons8</a></p>
+  </footer>
 </template>
 
 <script setup>
