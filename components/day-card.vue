@@ -1,12 +1,12 @@
 <template>
   <li
-    class="rounded-md w-full border border-border shadow-lg hover:bg-background active:scale-105"
+    class="rounded-md border border-border shadow-lg hover:bg-background sm:w-56 active:scale-105"
     :class="[
       selectedDay === index ? 'bg-background text-neutral-200' : 'bg-primary'
     ]"
   >
     <button
-      class="flex flex-col items-center px-6 py-6 w-full"
+      class="flex flex-col items-center p-4 w-full"
       @click="selectedDay = index"
     >
       <h4 class="text-center">
