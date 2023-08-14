@@ -11,7 +11,7 @@
         <span class="text-xl text-neutral-100">{{ locationString }}</span>
       </p>
     </header>
-    <Map class="h-[25rem] hidden sm:block" />
+    <Map class="h-[20rem] hidden sm:block" />
   </Panel>
 </template>
 
