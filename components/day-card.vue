@@ -6,7 +6,7 @@
     ]"
   >
     <button
-      class="flex flex-col items-center p-4 w-full"
+      class="flex flex-col items-center justify-between p-4 w-full h-full"
       @click="selectedDay = index"
     >
       <h4 class="text-center">
@@ -31,38 +31,34 @@
 
       <footer class="flex items-center gap-y-4 gap-x-10">
         <div class="flex flex-col items-center gap-y-2">
-          <img
-            src="/images/min-temp.webp"
-            alt="maximum temperature"
-            width="17"
-            height="17"
-          />
-          <p class="text-center">
-            {{
+          <SingleValueImage
+            :label="
               getDisplayTemperature(
                 tempUnit,
                 dayInfo.minTempC,
                 dayInfo.minTempF
               )
-            }}
-          </p>
+            "
+            image-src="/images/min-temp.webp"
+            image-alt="minimum temperature"
+            image-width="17"
+            image-height="17"
+          />
         </div>
         <div class="flex flex-col items-center gap-y-2">
-          <img
-            src="/images/max-temp.webp"
-            alt="maximum temperature"
-            width="17"
-            height="17"
-          />
-          <p class="text-center">
-            {{
+          <SingleValueImage
+            :label="
               getDisplayTemperature(
                 tempUnit,
                 dayInfo.maxTempC,
                 dayInfo.maxTempF
               )
-            }}
-          </p>
+            "
+            image-src="/images/max-temp.webp"
+            image-alt="maximum temperature"
+            image-width="17"
+            image-height="17"
+          />
         </div>
       </footer>
     </button>
