@@ -20,7 +20,7 @@
       </li>
     </ul>
 
-    <div>
+    <div class="self-start">
       <p>Humedad: {{ humidity }} %</p>
       <p>Viento: {{ wind }} km/h</p>
       <p>Dirección del viento: {{ windDirection }}</p>
