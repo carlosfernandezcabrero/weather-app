@@ -1,21 +1,4 @@
-<template>
-  <GMapMap
-    :center="currentLocation"
-    :zoom="12"
-    map-type-id="terrain"
-    class="w-full"
-    style="border-radius: 4px"
-  >
-    <GMapCluster>
-      <GMapMarker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        :draggable="true"
-      />
-    </GMapCluster>
-  </GMapMap>
-</template>
+<template></template>
 
 <script setup>
 import { STATES } from '~/constants'
@@ -26,9 +9,7 @@ const currentLocation = {
   lng: Number(lng)
 }
 
-const markers = [
-  {
-    position: currentLocation
-  }
-]
+const marker = {
+  position: currentLocation
+}
 </script>
