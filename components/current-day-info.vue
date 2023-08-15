@@ -20,7 +20,7 @@
       </li>
     </ul>
 
-    <ul class="flex justify-center items-start gap-x-8">
+    <ul class="flex flex-col sm:flex-row gap-y-2 gap-x-8">
       <li>
         <p>Viento: {{ wind }} km/h</p>
         <p>Dirección del viento: {{ windDirection }}</p>
