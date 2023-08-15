@@ -2,7 +2,7 @@
   <iframe
     referrerpolicy="no-referrer-when-downgrade"
     :src="`https://www.google.com/maps/embed/v1/view?key=${googleMapsApiKey}
-    &zoom=11&language=es&center=${lat},${lng}&maptype=roadmap`"
+    &zoom=11&language=es&center=${weatherDataStore.getLocationCoords}&maptype=roadmap`"
     class="w-full h-full rounded-md"
     allowfullscreen
   >
@@ -10,9 +10,8 @@
 </template>
 
 <script setup>
-import { STATES } from '~/constants'
+import { useWeatherDataStore } from '~/store'
 
 const { googleMapsApiKey } = useRuntimeConfig().public
-
-const [lat, lng] = useState(STATES.location).value.split('/')
+const weatherDataStore = useWeatherDataStore()
 </script>

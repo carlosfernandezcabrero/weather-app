@@ -1,95 +1,35 @@
 <template>
   <PageHeader class="max-w-screen-xl w-full mx-auto" />
 
-  <main role="main" class="mt-6">
-    <div v-if="location" class="flex flex-col gap-y-24 max-w-screen-xl mx-auto">
-      <CurrentDaySection />
-      <Forecast />
-    </div>
-    <div
-      v-else
-      class="flex flex-col items-center justify-center flex-1 animate-pulse"
-    >
-      <div class="waveform">
-        <div class="waveform__bar"></div>
-        <div class="waveform__bar"></div>
-        <div class="waveform__bar"></div>
-        <div class="waveform__bar"></div>
-      </div>
-      <p class="mt-5 text-xl">Cargando los datos</p>
-    </div>
+  <main
+    role="main"
+    class="mt-6 flex flex-col gap-y-24 max-w-screen-xl px-2 w-full mx-auto transition-all ease-out delay-100 duration-700 transform"
+    :class="[
+      weatherDataStore.isLocationSet
+        ? 'translate-y-0 opacity-100'
+        : 'translate-y-12 opacity-0'
+    ]"
+  >
+    <CurrentDaySection v-if="weatherDataStore.isLocationSet" />
+    <Forecast v-if="weatherDataStore.isLocationSet" />
   </main>
 
-  <footer class="py-12 text-center bg-primary mt-32 w-full">
-    <p>Iconos de <a href="https://icons8.com/" target="_blank">Icons8</a></p>
-  </footer>
+  <Footer />
 </template>
 
 <script setup>
-import { STATES } from '~/constants'
+import { useWeatherDataStore } from '~/store'
 
-const location = useState(STATES.location, () => '')
+const weatherDataStore = useWeatherDataStore()
 
 onMounted(() => {
   navigator.geolocation.getCurrentPosition(
     ({ coords: { latitude, longitude } }) => {
-      location.value = `${latitude}/${longitude}`
+      weatherDataStore.setLocation(latitude, longitude)
     },
     () => {
-      location.value = `${35.652832}/${139.839478}`
+      weatherDataStore.setLocation(35.652832, 139.839478)
     }
   )
 })
 </script>
-
-<style scoped>
-.waveform {
-  --uib-size: 60px;
-  --uib-speed: 1.7s;
-  --uib-color: #e5e5e5;
-  --uib-line-weight: 3.5px;
-
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-  width: var(--uib-size);
-  height: calc(var(--uib-size) * 0.9);
-}
-
-.waveform__bar {
-  width: var(--uib-line-weight);
-  height: 100%;
-  background-color: var(--uib-color);
-}
-
-.waveform__bar:nth-child(1) {
-  animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.45)
-    infinite;
-}
-
-.waveform__bar:nth-child(2) {
-  animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.3)
-    infinite;
-}
-
-.waveform__bar:nth-child(3) {
-  animation: grow var(--uib-speed) ease-in-out calc(var(--uib-speed) * -0.15)
-    infinite;
-}
-
-.waveform__bar:nth-child(4) {
-  animation: grow var(--uib-speed) ease-in-out infinite;
-}
-
-@keyframes grow {
-  0%,
-  100% {
-    transform: scaleY(0.3);
-  }
-
-  50% {
-    transform: scaleY(1);
-  }
-}
-</style>

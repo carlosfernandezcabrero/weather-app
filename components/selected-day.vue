@@ -1,15 +1,15 @@
 <template>
   <transition name="slide-fade" mode="out-in">
-    <Panel :key="dateEpoch">
+    <Panel :key="day.dateEpoch">
       <PanelTitle>
-        {{ mediumFormatDate(dateEpoch * 1000) }}
+        {{ mediumFormatDate(day.dateEpoch * 1000) }}
       </PanelTitle>
 
       <ul class="flex flex-col sm:flex-row sm:items-end sm:gap-x-20 gap-y-8">
         <li>
           <SingleValueImage
-            :label="dayCondition.text"
-            :image-src="`/images/${WEATHER_CODES[dayCondition.code]}.webp`"
+            :label="day.dayCondition.text"
+            :image-src="`/images/${WEATHER_CODES[day.dayCondition.code]}.webp`"
             image-alt="imagen clima"
             image-width="100"
             image-height="100"
@@ -17,7 +17,7 @@
         </li>
         <li>
           <SingleValueText
-            :value="getDisplayTemperature(tempUnit, avgTempC, avgTempF)"
+            :value="getDisplayTemperature(tempUnit, day.avgTempC, day.avgTempF)"
             label="Temperatura media"
           />
         </li>
@@ -28,62 +28,51 @@
           <p>
             Temperatura maxima:
             <span>{{
-              getDisplayTemperature(tempUnit, maxTempC, maxTempF)
+              getDisplayTemperature(tempUnit, day.maxTempC, day.maxTempF)
             }}</span>
           </p>
           <p>
             Temperatura minima:
             <span>{{
-              getDisplayTemperature(tempUnit, minTempC, minTempF)
+              getDisplayTemperature(tempUnit, day.minTempC, day.minTempF)
             }}</span>
           </p>
         </li>
         <li>
           <p>
             Probabilidad de lluvia:
-            <span>{{ chanceOfRain }} %</span>
+            <span>{{ day.chanceOfRain }} %</span>
           </p>
           <p>
             Probabilidad de nieve:
-            <span>{{ chanceOfSnow }} %</span>
+            <span>{{ day.chanceOfSnow }} %</span>
           </p>
         </li>
         <li>
           <p>
-            Viento: <span>{{ maxWind }} km/h</span>
+            Viento: <span>{{ day.maxWind }} km/h</span>
           </p>
           <p>
-            Humedad: <span>{{ humidity }} %</span>
+            Humedad: <span>{{ day.humidity }} %</span>
           </p>
         </li>
       </ul>
 
-      <Graph :hours="hours" />
+      <Graph :hours="day.hours" :key="locationCoords" />
     </Panel>
   </transition>
 </template>
 
 <script setup>
 import { STATES, WEATHER_CODES } from '~/constants'
-import { mediumFormatDate } from '~/utils/datetime'
-
-const { hours } = defineProps([
-  'dayCondition',
-  'dateEpoch',
-  'maxTempC',
-  'minTempC',
-  'maxTempF',
-  'minTempF',
-  'chanceOfRain',
-  'chanceOfSnow',
-  'humidity',
-  'maxWind',
-  'avgTempC',
-  'avgTempF',
-  'hours'
-])
+import { useWeatherDataStore } from '~/store'
 
 const tempUnit = useState(STATES.temperatureUnit)
+const selectedDay = useState(STATES.selectedDay)
+const weatherDataStore = useWeatherDataStore()
+
+const day = computed(() => weatherDataStore.getDayData(selectedDay.value))
+const locationCoords = computed(() => weatherDataStore.getLocationCoords)
 </script>
 
 <style scoped>

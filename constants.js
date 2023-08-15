@@ -1,7 +1,6 @@
 export const STATES = {
   selectedDay: 'selected-day',
-  temperatureUnit: 'temp-unit',
-  location: 'location'
+  temperatureUnit: 'temp-unit'
 }
 
 export const WEATHER_CODES = {

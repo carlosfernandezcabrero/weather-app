@@ -32,3 +32,22 @@
     @apply pr-12 py-2;
   }
 }
+
+.pac-container {
+  border: 1px solid #36373f !important;
+  border-radius: 6px !important;
+}
+
+.pac-item,
+.pac-item-query {
+  color: #d4d4d4 !important;
+}
+
+.pac-container,
+.pac-item {
+  background-color: #1e1f24 !important;
+}
+
+.pac-item {
+  border-top: 1px solid #36373f !important;
+}

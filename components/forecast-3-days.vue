@@ -1,7 +1,7 @@
 <template>
   <ul class="flex flex-col sm:flex-row gap-y-4 justify-center gap-x-10">
     <DayCard
-      v-for="(day, index) in data"
+      v-for="(day, index) in weatherDataStore.forecast"
       :key="day.dateEpoch"
       :dayInfo="day"
       :index="index"
@@ -10,5 +10,9 @@
 </template>
 
 <script setup>
-defineProps(['data'])
+import { STATES } from '~/constants'
+import { useWeatherDataStore } from '~/store'
+
+useState(STATES.selectedDay, () => 0)
+const weatherDataStore = useWeatherDataStore()
 </script>

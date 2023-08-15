@@ -19,7 +19,6 @@ import { STATES } from '~/constants'
 const { hours } = defineProps(['hours'])
 
 const tempUnit = useState(STATES.temperatureUnit)
-
 const graphSelected = ref('temperature')
 
 const graphLabels = hours.map(({ time }) => time.split(' ')[1])
