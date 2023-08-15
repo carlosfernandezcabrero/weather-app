@@ -1,5 +1,5 @@
 <template>
-  <p class="text-5xl text-neutral-100/90">
+  <p class="text-5xl text-neutral-100/90 text-center">
     {{ value }}
   </p>
   <h4 class="text-center mt-1 sm:mt-8">{{ label }}</h4>
