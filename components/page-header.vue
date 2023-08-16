@@ -1,6 +1,6 @@
 <template>
   <header class="py-6 px-2 flex items-center justify-between">
-    <h1 class="text-xl font-extrabold">Meteorology App</h1>
+    <h1 class="text-xl font-extrabold">Weather App</h1>
 
     <div>
       <div class="flex items-center text-sm font-semibold">
