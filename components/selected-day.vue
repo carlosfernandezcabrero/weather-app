@@ -58,6 +58,8 @@
         </li>
       </ul>
 
+      <TimeCards />
+
       <SelectedDayGraph />
     </Panel>
   </transition>
@@ -66,7 +68,6 @@
 <script setup>
 import { STATES, WEATHER_CODES } from '~/constants'
 import { useWeatherDataStore } from '~/store'
-import SelectedDayGraph from './selected-day-graph.vue'
 
 const tempUnit = useState(STATES.temperatureUnit)
 const selectedDay = useState(STATES.selectedDay)

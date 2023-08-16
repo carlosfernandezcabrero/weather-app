@@ -33,7 +33,8 @@ export default defineEventHandler(async (event) => {
           chance_of_snow,
           chance_of_rain,
           humidity,
-          wind_kph
+          wind_kph,
+          condition
         }) => ({
           time,
           feelsLikeC: feelslike_c,
@@ -41,7 +42,8 @@ export default defineEventHandler(async (event) => {
           chanceOfSnow: chance_of_snow,
           chanceOfRain: chance_of_rain,
           humidity,
-          windKph: wind_kph
+          windKph: wind_kph,
+          condition
         })
       )
     }))
