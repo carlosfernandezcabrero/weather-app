@@ -2,7 +2,7 @@ const DESCRIPTION =
   'Aplicación para consultar el tiempo de cualquier ciudad del mundo en el momento actual y en los próximos 3 días'
 const URL = 'https://weather-app-omega-amber.vercel.app'
 const TITLE = 'Weather App - Aplicación para consultar el tiempo'
-const IMAGE = '/og-image.svg'
+const IMAGE = `${URL}/og-image.svg`
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
