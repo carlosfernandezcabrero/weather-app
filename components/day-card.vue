@@ -6,27 +6,30 @@
     ]"
   >
     <button
-      class="flex flex-col items-center justify-between p-4 w-full h-full"
+      class="flex flex-col items-center justify-between p-4 w-full h-full gap-y-6"
       @click="selectedDay = index"
     >
-      <h4 class="text-center">
-        <template v-if="todayEpoch === dayInfo.dateEpoch">Hoy</template>
-        <template v-else-if="todayEpoch + 86400 === dayInfo.dateEpoch">
-          Mañana
-        </template>
-        <template v-else>{{
-          shortFormatDate(dayInfo.dateEpoch * 1000)
-        }}</template>
-      </h4>
+      <div>
+        <h4 class="text-center">
+          <template v-if="todayEpoch === dayInfo.dateEpoch">Hoy</template>
+          <template v-else-if="todayEpoch + 86400 === dayInfo.dateEpoch">
+            Mañana
+          </template>
+          <template v-else>{{
+            shortFormatDate(dayInfo.dateEpoch * 1000)
+          }}</template>
+        </h4>
 
-      <div class="my-6">
-        <img
-          :src="`/images/${WEATHER_CODES[dayInfo.dayCondition.code]}.webp`"
-          alt="day condition icon"
-          class="object-contain object-center"
-          height="80"
-          width="80"
-        />
+        <div class="mt-6">
+          <img
+            :src="`/images/${WEATHER_CODES[dayInfo.dayCondition.code]}.webp`"
+            alt="day condition icon"
+            class="object-contain object-center mx-auto"
+            height="80"
+            width="80"
+          />
+          <p class="text-center mt-2">{{ dayInfo.dayCondition.text }}</p>
+        </div>
       </div>
 
       <footer class="flex items-center gap-y-4 gap-x-10">
