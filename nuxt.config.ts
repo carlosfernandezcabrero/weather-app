@@ -1,3 +1,8 @@
+const DESCRIPTION =
+  'Aplicación para consultar el tiempo en cualquier ciudad del mundo en el momento actual y en los próximos 3 días'
+const URL = 'https://weather-app-omega-amber.vercel.app'
+const TITLE = 'Weather App - Aplicación para consultar el tiempo'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   postcss: {
@@ -26,9 +31,40 @@ export default defineNuxtConfig({
       ],
       meta: [
         {
+          name: 'og:title',
+          content: TITLE
+        },
+        {
+          name: 'twitter:title',
+          content: TITLE
+        },
+        {
           name: 'description',
-          content:
-            'Aplicación para consultar el tiempo en cualquier ciudad del mundo en el momento actual y en los próximos 3 días.'
+          content: DESCRIPTION
+        },
+        {
+          name: 'og:description',
+          content: DESCRIPTION
+        },
+        {
+          name: 'twitter:description',
+          content: DESCRIPTION
+        },
+        {
+          name: 'twitter:url',
+          content: URL
+        },
+        {
+          name: 'og:url',
+          content: URL
+        },
+        {
+          name: 'og:type',
+          content: 'website'
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
         }
       ]
     }
