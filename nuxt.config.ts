@@ -1,8 +1,4 @@
-const DESCRIPTION =
-  'Aplicación para consultar el tiempo de cualquier ciudad del mundo en el momento actual y en los próximos 3 días'
-const URL = 'https://weather-app-omega-amber.vercel.app'
-const TITLE = 'Weather App - Aplicación para consultar el tiempo'
-const IMAGE = `${URL}/og-image.svg`
+import og from './og'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -30,52 +26,10 @@ export default defineNuxtConfig({
           src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB9I_bNgL2qV_vM91h1tVCnaGQECzf4sPU&libraries=places'
         }
       ],
-      meta: [
-        {
-          name: 'og:image',
-          content: IMAGE
-        },
-        {
-          name: 'twitter:image',
-          content: IMAGE
-        },
-        {
-          name: 'og:title',
-          content: TITLE
-        },
-        {
-          name: 'twitter:title',
-          content: TITLE
-        },
-        {
-          name: 'description',
-          content: DESCRIPTION
-        },
-        {
-          name: 'og:description',
-          content: DESCRIPTION
-        },
-        {
-          name: 'twitter:description',
-          content: DESCRIPTION
-        },
-        {
-          name: 'twitter:url',
-          content: URL
-        },
-        {
-          name: 'og:url',
-          content: URL
-        },
-        {
-          name: 'og:type',
-          content: 'website'
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image'
-        }
-      ]
+      meta: Object.entries(og).map(([key, value]) => ({
+        name: key,
+        content: value
+      }))
     }
   }
 })
