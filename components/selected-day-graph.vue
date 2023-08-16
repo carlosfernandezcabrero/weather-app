@@ -15,18 +15,23 @@
 
 <script setup>
 import { STATES } from '~/constants'
-
-const { hours } = defineProps(['hours'])
+import { useWeatherDataStore } from '~/store'
 
 const tempUnit = useState(STATES.temperatureUnit)
+const selectedDay = useState(STATES.selectedDay)
 const graphSelected = ref('temperature')
+const weatherDataStore = useWeatherDataStore()
 
-const graphLabels = hours.map(({ time }) => time.split(' ')[1])
+const hours = computed(
+  () => weatherDataStore.getDayData(selectedDay.value).hours
+)
+
+const graphLabels = hours.value.map(({ time }) => time.split(' ')[1])
 const graphs = computed(() => ({
   temperature: {
     label: 'Temperatura ambiente',
     data: () =>
-      hours.map(({ feelsLikeC, feelsLikeF }) =>
+      hours.value.map(({ feelsLikeC, feelsLikeF }) =>
         tempUnit.value === 'c' ? feelsLikeC : feelsLikeF
       ),
     y: (value) => `${value}º${tempUnit.value.toUpperCase()}`,
@@ -35,25 +40,25 @@ const graphs = computed(() => ({
   },
   rain: {
     label: 'Probabilidad de lluvia',
-    data: () => hours.map(({ chanceOfRain }) => chanceOfRain),
+    data: () => hours.value.map(({ chanceOfRain }) => chanceOfRain),
     y: (value) => `${value}%`,
     tooltip: ({ raw }) => `Probabilidad de lluvia: ${raw}%`
   },
   snow: {
     label: 'Probabilidad de nieve',
-    data: () => hours.map(({ chanceOfSnow }) => chanceOfSnow),
+    data: () => hours.value.map(({ chanceOfSnow }) => chanceOfSnow),
     y: (value) => `${value}%`,
     tooltip: ({ raw }) => `Probabilidad de nieve: ${raw}%`
   },
   humidity: {
     label: 'Humedad',
-    data: () => hours.map(({ humidity }) => humidity),
+    data: () => hours.value.map(({ humidity }) => humidity),
     y: (value) => `${value}%`,
     tooltip: ({ raw }) => `Humedad: ${raw}%`
   },
   wind: {
     label: 'Velocidad del viento',
-    data: () => hours.map(({ windKph }) => windKph),
+    data: () => hours.value.map(({ windKph }) => windKph),
     y: (value) => `${value} km/h`,
     tooltip: ({ raw }) => `Velocidad del viento: ${raw} km/h`
   }

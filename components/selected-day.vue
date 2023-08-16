@@ -58,7 +58,7 @@
         </li>
       </ul>
 
-      <Graph :hours="day.hours" :key="locationCoords" />
+      <SelectedDayGraph />
     </Panel>
   </transition>
 </template>
@@ -66,13 +66,13 @@
 <script setup>
 import { STATES, WEATHER_CODES } from '~/constants'
 import { useWeatherDataStore } from '~/store'
+import SelectedDayGraph from './selected-day-graph.vue'
 
 const tempUnit = useState(STATES.temperatureUnit)
 const selectedDay = useState(STATES.selectedDay)
 const weatherDataStore = useWeatherDataStore()
 
 const day = computed(() => weatherDataStore.getDayData(selectedDay.value))
-const locationCoords = computed(() => weatherDataStore.getLocationCoords)
 </script>
 
 <style scoped>
