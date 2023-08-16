@@ -23,6 +23,13 @@ export default defineNuxtConfig({
         {
           src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB9I_bNgL2qV_vM91h1tVCnaGQECzf4sPU&libraries=places'
         }
+      ],
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Aplicación para consultar el tiempo en cualquier ciudad del mundo en el momento actual y en los próximos 3 días.'
+        }
       ]
     }
   }
