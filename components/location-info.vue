@@ -14,7 +14,7 @@
         }}</span>
       </p>
     </header>
-    <Map class="h-[21rem] hidden sm:block" />
+    <Map class="h-[22rem] hidden sm:block" />
   </Panel>
 </template>
 
