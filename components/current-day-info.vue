@@ -1,6 +1,23 @@
 <template>
   <Panel class="flex-1">
-    <PanelTitle>{{ longFormatDate(lastUpdated) }}</PanelTitle>
+    <header>
+      <button
+        class="mb-8 bg-background border border-border rounded-md px-4 py-2 text-white flex items-center gap-x-2 mx-auto"
+        :class="{
+          'opacity-50 cursor-not-allowed animate-pulse': isLoading
+        }"
+        @click="handleRefresh"
+      >
+        <img
+          src="/images/refresh.svg"
+          alt="refresh icon"
+          height="24"
+          width="24"
+        />
+        Refrescar
+      </button>
+      <PanelTitle>{{ longFormatDate(lastUpdated * 1000) }}</PanelTitle>
+    </header>
 
     <ul class="flex flex-col sm:flex-row sm:items-end sm:gap-x-20 gap-y-8">
       <li>
@@ -38,8 +55,15 @@ import { STATES, WEATHER_CODES } from '~/constants'
 import { useWeatherDataStore } from '~/store'
 import { longFormatDate } from '~/utils/datetime'
 
+const isLoading = ref(false)
 const weatherDataStore = useWeatherDataStore()
 const tempUnit = useState(STATES.temperatureUnit)
+
+async function handleRefresh() {
+  isLoading.value = true
+  await weatherDataStore.refreshData()
+  isLoading.value = false
+}
 
 const lastUpdated = computed(() => weatherDataStore.currentWeather.lastUpdated)
 const dayCondition = computed(

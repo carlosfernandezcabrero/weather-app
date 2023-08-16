@@ -9,19 +9,23 @@ export const useWeatherDataStore = defineStore('weatherData', {
     isLocationSet: false
   }),
   actions: {
-    async setLocation(lat, lng) {
-      this.lat = lat
-      this.lng = lng
-
+    async refreshData() {
       const [current, forecast] = await Promise.all(
         [
-          fetch(`/api/current?lat=${lat}&lng=${lng}`),
-          fetch(`/api/forecast?lat=${lat}&lng=${lng}`)
+          fetch(`/api/current?lat=${this.lat}&lng=${this.lng}`),
+          fetch(`/api/forecast?lat=${this.lat}&lng=${this.lng}`)
         ].map((call) => call.then((res) => res.json()))
       )
 
       this.currentWeather = current
       this.forecast = forecast
+    },
+    async setLocation(lat, lng) {
+      this.lat = lat
+      this.lng = lng
+
+      await this.refreshData()
+
       this.isLocationSet = true
     }
   },
