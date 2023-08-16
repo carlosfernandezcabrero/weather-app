@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="py-12 text-center bg-primary mt-32 w-full flex flex-col gap-y-2"
+    class="py-12 text-center bg-primary mt-32 w-full flex flex-col gap-y-2 text-base"
   >
     <p>
       Iconos de
