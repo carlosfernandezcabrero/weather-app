@@ -2,7 +2,7 @@ const DESCRIPTION =
   'Aplicación para consultar el tiempo de cualquier ciudad del mundo en el momento actual y en los próximos 3 días'
 const PAGE_URL = 'https://weather-app-omega-amber.vercel.app'
 const TITLE = 'Weather App - Aplicación para consultar el tiempo'
-const IMAGE_URL = `${PAGE_URL}/og-image.webp`
+const IMAGE_URL = `${PAGE_URL}/og-image.png`
 
 export default {
   'og:image': IMAGE_URL,
