@@ -10,6 +10,7 @@
         id="locale-select"
         v-model="$i18n.locale"
         class="bg-background text-highlight pl-4 rounded-md mb-6 border border-border"
+        @change="({ target }) => weatherDataStore.setLanguage(target.value)"
       >
         <option value="es">es</option>
         <option value="en">en</option>
@@ -36,3 +37,9 @@
     </p>
   </footer>
 </template>
+
+<script setup>
+import { useWeatherDataStore } from '~/store'
+
+const weatherDataStore = useWeatherDataStore()
+</script>
