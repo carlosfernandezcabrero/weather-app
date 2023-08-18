@@ -11,11 +11,13 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
   pages: true,
-  modules: [
-    '@nuxt/devtools',
-    '@pinia/nuxt',
-    ['@nuxtjs/i18n', { vueI18n: './i18n.config.js' }]
-  ],
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n'],
+
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'es',
+    vueI18n: './i18n.config.js'
+  },
 
   runtimeConfig: {
     public: {

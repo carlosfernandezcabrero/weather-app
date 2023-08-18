@@ -14,7 +14,7 @@
           height="24"
           width="24"
         />
-        Refrescar
+        {{ $t('refresh') }}
       </button>
       <PanelTitle>{{ longFormatDate(lastUpdated * 1000) }}</PanelTitle>
     </header>
@@ -32,19 +32,19 @@
       <li>
         <SingleValueText
           :value="getDisplayTemperature(tempUnit, feelsLikeC, feelsLikeF)"
-          label="Sensación térmica"
+          :label="$t('thermal-sensation')"
         />
       </li>
     </ul>
 
     <ul class="flex flex-col sm:flex-row gap-y-2 gap-x-8">
       <li>
-        <p>Viento: {{ wind }} km/h</p>
-        <p>Dirección del viento: {{ windDirection }}</p>
+        <p>{{ $t('wind') }}: {{ wind }} km/h</p>
+        <p>{{ $t('wind-direction') }}: {{ windDirection }}</p>
       </li>
       <li>
-        <p>Humedad: {{ humidity }} %</p>
-        <p>Cantidad de precipitaciones: {{ precipMm }} mm</p>
+        <p>{{ $t('humidity') }}: {{ humidity }} %</p>
+        <p>{{ $t('amount-of-rainfall') }}: {{ precipMm }} mm</p>
       </li>
     </ul>
   </Panel>

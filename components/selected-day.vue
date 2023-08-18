@@ -18,7 +18,7 @@
         <li>
           <SingleValueText
             :value="getDisplayTemperature(tempUnit, day.avgTempC, day.avgTempF)"
-            label="Temperatura media"
+            :label="$t('medium-temperature')"
           />
         </li>
       </ul>
@@ -26,13 +26,13 @@
       <ul class="flex flex-col gap-y-2 md:flex-row md:gap-x-8">
         <li>
           <p>
-            Temperatura maxima:
+            {{ $t('max-temperature') }}:
             <span>{{
               getDisplayTemperature(tempUnit, day.maxTempC, day.maxTempF)
             }}</span>
           </p>
           <p>
-            Temperatura minima:
+            {{ $t('min-temperature') }}:
             <span>{{
               getDisplayTemperature(tempUnit, day.minTempC, day.minTempF)
             }}</span>
@@ -40,20 +40,20 @@
         </li>
         <li>
           <p>
-            Probabilidad de lluvia:
+            {{ $t('probability-of-rain') }}:
             <span>{{ day.chanceOfRain }} %</span>
           </p>
           <p>
-            Probabilidad de nieve:
+            {{ $t('probability-of-snow') }}:
             <span>{{ day.chanceOfSnow }} %</span>
           </p>
         </li>
         <li>
           <p>
-            Viento: <span>{{ day.maxWind }} km/h</span>
+            {{ $t('wind') }}: <span>{{ day.maxWind }} km/h</span>
           </p>
           <p>
-            Humedad: <span>{{ day.humidity }} %</span>
+            {{ $t('humidity') }}: <span>{{ day.humidity }} %</span>
           </p>
         </li>
       </ul>

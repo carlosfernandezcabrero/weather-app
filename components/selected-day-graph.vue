@@ -5,7 +5,7 @@
       v-model="graphSelected"
     >
       <option v-for="[key, data] in Object.entries(graphs)" :value="key">
-        {{ data.label }}
+        {{ $t(data.label) }}
       </option>
     </select>
 
@@ -29,38 +29,37 @@ const hours = computed(
 const graphLabels = hours.value.map(({ time }) => time.split(' ')[1])
 const graphs = computed(() => ({
   temperature: {
-    label: 'Temperatura ambiente',
+    label: 'ambient-temperature',
     data: () =>
       hours.value.map(({ feelsLikeC, feelsLikeF }) =>
         tempUnit.value === 'c' ? feelsLikeC : feelsLikeF
       ),
     y: (value) => `${value}º${tempUnit.value.toUpperCase()}`,
-    tooltip: ({ raw }) =>
-      `Temperatura ambiente: ${raw}º${tempUnit.value.toUpperCase()}`
+    tooltip: ({ raw }) => ` ${raw}º${tempUnit.value.toUpperCase()}`
   },
   rain: {
-    label: 'Probabilidad de lluvia',
+    label: 'probability-of-rain',
     data: () => hours.value.map(({ chanceOfRain }) => chanceOfRain),
     y: (value) => `${value}%`,
-    tooltip: ({ raw }) => `Probabilidad de lluvia: ${raw}%`
+    tooltip: ({ raw }) => ` ${raw}%`
   },
   snow: {
-    label: 'Probabilidad de nieve',
+    label: 'probability-of-snow',
     data: () => hours.value.map(({ chanceOfSnow }) => chanceOfSnow),
     y: (value) => `${value}%`,
-    tooltip: ({ raw }) => `Probabilidad de nieve: ${raw}%`
+    tooltip: ({ raw }) => ` ${raw}%`
   },
   humidity: {
-    label: 'Humedad',
+    label: 'humidity',
     data: () => hours.value.map(({ humidity }) => humidity),
     y: (value) => `${value}%`,
-    tooltip: ({ raw }) => `Humedad: ${raw}%`
+    tooltip: ({ raw }) => ` ${raw}%`
   },
   wind: {
-    label: 'Velocidad del viento',
+    label: 'wind-speed',
     data: () => hours.value.map(({ windKph }) => windKph),
     y: (value) => `${value} km/h`,
-    tooltip: ({ raw }) => `Velocidad del viento: ${raw} km/h`
+    tooltip: ({ raw }) => ` ${raw} km/h`
   }
 }))
 </script>

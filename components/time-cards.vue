@@ -1,7 +1,7 @@
 <template>
   <section class="w-full">
     <h4 class="text-center mb-6 text-2xl text-highlight font-semibold">
-      Previsión por hora
+      {{ $t('hourly-forecast') }}
     </h4>
 
     <ul class="flex gap-x-2 overflow-x-scroll w-full">

@@ -2,7 +2,7 @@
   <input
     id="searchTextField"
     type="text"
-    placeholder="Busque la localización"
+    :placeholder="$t('search-location')"
     class="w-full rounded-full px-6 py-2 bg-background border border-border focus:outline focus:outline-2 focus:outline-highlight text-white"
   />
 </template>

@@ -11,9 +11,11 @@
     >
       <div>
         <h4 class="text-center">
-          <template v-if="todayEpoch === dayInfo.dateEpoch">Hoy</template>
+          <template v-if="todayEpoch === dayInfo.dateEpoch">{{
+            $t('today')
+          }}</template>
           <template v-else-if="todayEpoch + 86400 === dayInfo.dateEpoch">
-            Mañana
+            {{ $t('tomorrow') }}
           </template>
           <template v-else>{{
             shortFormatDate(dayInfo.dateEpoch * 1000)

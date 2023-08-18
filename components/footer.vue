@@ -3,11 +3,11 @@
     class="py-12 text-center bg-primary mt-32 w-full flex flex-col gap-y-2 text-base"
   >
     <p>
-      Iconos de
+      {{ $t('icons') }}
       <a class="font-bold" href="https://icons8.com/" target="_blank">Icons8</a>
     </p>
     <p>
-      Ideas cogidas de
+      {{ $t('ideas') }}
       <a class="font-bold" href="https://github.com/ikurotime" target="_blank">
         David Huertas
       </a>
