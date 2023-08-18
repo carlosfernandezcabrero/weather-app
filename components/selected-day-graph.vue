@@ -1,7 +1,7 @@
 <template>
   <div class="w-full text-center">
     <select
-      class="bg-background text-highlight pl-4 rounded-md mb-6"
+      class="bg-background text-highlight pl-4 rounded-md mb-6 border border-border"
       v-model="graphSelected"
     >
       <option v-for="[key, data] in Object.entries(graphs)" :value="key">
