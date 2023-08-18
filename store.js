@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useWeatherDataStore = defineStore('weatherData', {
   state: () => ({
+    language: 'es',
     lat: null,
     lng: null,
     currentWeather: null,
@@ -12,8 +13,12 @@ export const useWeatherDataStore = defineStore('weatherData', {
     async refreshData() {
       const [current, forecast] = await Promise.all(
         [
-          fetch(`/api/current?lat=${this.lat}&lng=${this.lng}`),
-          fetch(`/api/forecast?lat=${this.lat}&lng=${this.lng}`)
+          fetch(
+            `/api/current?lat=${this.lat}&lng=${this.lng}&lang=${this.language}`
+          ),
+          fetch(
+            `/api/forecast?lat=${this.lat}&lng=${this.lng}&lang=${this.language}`
+          )
         ].map((call) => call.then((res) => res.json()))
       )
 

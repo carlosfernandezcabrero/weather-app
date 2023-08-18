@@ -8,10 +8,10 @@ const HEADERS = {
 }
 
 export async function fetchFromApi(location, options = {}) {
-  const { lat, lng } = location
+  const { lat, lng, lang } = location
 
   const response = await fetch(
-    `${API_URL}/forecast.json?q=${lat},${lng}&days=3&lang=es`,
+    `${API_URL}/forecast.json?q=${lat},${lng}&days=3&lang=${lang}`,
     {
       ...options,
       headers: HEADERS
