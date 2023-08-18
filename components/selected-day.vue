@@ -2,7 +2,7 @@
   <transition name="slide-fade" mode="out-in">
     <Panel :key="day.dateEpoch">
       <PanelTitle>
-        {{ mediumFormatDate(day.dateEpoch * 1000) }}
+        {{ mediumFormatDate(day.dateEpoch * 1000, weatherDataStore.language) }}
       </PanelTitle>
 
       <ul class="flex flex-col sm:flex-row sm:items-end sm:gap-x-20 gap-y-8">

@@ -18,7 +18,7 @@
             {{ $t('tomorrow') }}
           </template>
           <template v-else>{{
-            shortFormatDate(dayInfo.dateEpoch * 1000)
+            shortFormatDate(dayInfo.dateEpoch * 1000, weatherStoreData.language)
           }}</template>
         </h4>
 
@@ -71,6 +71,7 @@
 </template>
 
 <script setup>
+import { useWeatherDataStore } from '~/store'
 import { STATES, WEATHER_CODES } from '~/constants'
 import { shortFormatDate } from '~/utils/datetime'
 
@@ -78,6 +79,7 @@ defineProps(['dayInfo', 'index'])
 
 const selectedDay = useState(STATES.selectedDay)
 const tempUnit = useState(STATES.temperatureUnit)
+const weatherStoreData = useWeatherDataStore()
 
 const today = new Date()
 today.setUTCHours(0, 0, 0, 0)

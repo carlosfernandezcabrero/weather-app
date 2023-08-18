@@ -16,7 +16,9 @@
         />
         {{ $t('refresh') }}
       </button>
-      <PanelTitle>{{ longFormatDate(lastUpdated * 1000) }}</PanelTitle>
+      <PanelTitle>{{
+        longFormatDate(lastUpdated * 1000, weatherDataStore.language)
+      }}</PanelTitle>
     </header>
 
     <ul class="flex flex-col sm:flex-row sm:items-end sm:gap-x-20 gap-y-8">

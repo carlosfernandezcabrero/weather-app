@@ -1,21 +1,18 @@
-export function longFormatDate(timestamp) {
-  return new Intl.DateTimeFormat('es-ES', {
+export function longFormatDate(timestamp, lang) {
+  return new Intl.DateTimeFormat(lang, {
     dateStyle: 'full',
-    timeStyle: 'medium',
-    timeZone: 'Europe/Madrid'
+    timeStyle: 'short'
   }).format(new Date(timestamp))
 }
 
-export function mediumFormatDate(timestamp) {
-  return new Intl.DateTimeFormat('es-ES', {
-    dateStyle: 'full',
-    timeZone: 'Europe/Madrid'
+export function mediumFormatDate(timestamp, lang) {
+  return new Intl.DateTimeFormat(lang, {
+    dateStyle: 'full'
   }).format(new Date(timestamp))
 }
 
-export function shortFormatDate(timestamp) {
-  return new Intl.DateTimeFormat('es-ES', {
-    dateStyle: 'long',
-    timeZone: 'Europe/Madrid'
+export function shortFormatDate(timestamp, lang) {
+  return new Intl.DateTimeFormat(lang, {
+    dateStyle: 'long'
   }).format(new Date(timestamp))
 }
