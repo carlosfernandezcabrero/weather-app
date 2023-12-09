@@ -29,7 +29,7 @@
     <p>
       <a
         class="text-xl font-bold"
-        href="https://github.com/carlosfernandezcabrero"
+        href="https://github.com/carlosfernandezcabrero/weather-app"
         target="_blank"
       >
         GitHub
