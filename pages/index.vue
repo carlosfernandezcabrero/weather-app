@@ -11,7 +11,7 @@
     ]"
   >
     <CurrentDaySection v-if="weatherDataStore.isLocationSet" />
-    <Forecast v-if="weatherDataStore.isLocationSet" />
+    <LazyForecast v-if="weatherDataStore.isLocationSet" />
   </main>
 
   <Footer />
