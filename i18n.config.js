@@ -3,6 +3,7 @@ export default defineI18nConfig(() => ({
   fallbackLocale: 'en',
   messages: {
     en: {
+      title: 'Weather App',
       'next-three-days': 'Next three days',
       refresh: 'update',
       today: 'Today',
@@ -26,6 +27,7 @@ export default defineI18nConfig(() => ({
       language: 'Choose language'
     },
     es: {
+      title: 'El tiempo',
       'next-three-days': 'Próximos tres días',
       refresh: 'actualizar',
       today: 'Hoy',

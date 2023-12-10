@@ -21,10 +21,11 @@
 import { useI18n } from 'vue-i18n'
 import { useWeatherDataStore } from '~/store'
 
-const { locale } = useI18n()
+const { locale, messages } = useI18n()
 const weatherDataStore = useWeatherDataStore()
 
 useHead({
+  title: messages.value[locale.value].title,
   htmlAttrs: {
     lang: locale
   }
