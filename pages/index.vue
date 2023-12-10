@@ -21,10 +21,16 @@
 import { useI18n } from 'vue-i18n'
 import { useWeatherDataStore } from '~/store'
 
-const i18nLocale = useI18n()
+const { locale } = useI18n()
 const weatherDataStore = useWeatherDataStore()
 
-weatherDataStore.language = i18nLocale.locale.value
+useHead({
+  htmlAttrs: {
+    lang: locale
+  }
+})
+
+weatherDataStore.language = locale.value
 
 onMounted(() => {
   navigator.geolocation.getCurrentPosition(
