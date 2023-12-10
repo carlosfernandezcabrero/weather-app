@@ -25,10 +25,6 @@ export const useWeatherDataStore = defineStore('weatherData', {
       this.currentWeather = current
       this.forecast = forecast
     },
-    async setLanguage(lang) {
-      this.language = lang
-      await this.refreshData()
-    },
     async setLocation(lat, lng) {
       this.lat = lat
       this.lng = lng
