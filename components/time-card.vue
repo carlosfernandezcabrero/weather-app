@@ -1,7 +1,10 @@
 <template>
   <li
-    :id="`time-card-${Number(hour.split(':')[0])}`"
+    :id="`time-card-${hourNumber}`"
     class="rounded-md border border-border shadow-lg bg-background p-4 w-44 shrink-0"
+    :class="{
+      'bg-highlight/10': hourNumber === now
+    }"
   >
     <h5 class="text-center">
       {{ hour }}
@@ -39,4 +42,6 @@ const {
 const tempUnit = useState(STATES.temperatureUnit)
 
 const hour = time.split(' ')[1]
+const hourNumber = Number(hour.split(':')[0])
+const now = new Date().getHours()
 </script>
