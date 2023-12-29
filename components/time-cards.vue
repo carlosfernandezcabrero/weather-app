@@ -4,7 +4,7 @@
       {{ $t('hourly-forecast') }}
     </h4>
 
-    <ul class="flex gap-x-2 overflow-x-scroll w-full">
+    <ul class="flex gap-x-2 overflow-x-scroll w-full" id="time-cards-container">
       <TimeCard v-for="time in timeline" :key="time.time" :time-info="time" />
     </ul>
   </section>
@@ -13,6 +13,24 @@
 <script setup>
 import { STATES } from '~/constants'
 import { useWeatherDataStore } from '~/store'
+
+onMounted(() => {
+  const now = new Date().getHours()
+  const $timeCardsContainer = document.getElementById('time-cards-container')
+  const boundingTimeCardsContainer = $timeCardsContainer.getBoundingClientRect()
+  const $currentTimeCard = document.getElementById(`time-card-${now}`)
+  const boundingCurrentTimeCard = $currentTimeCard.getBoundingClientRect()
+
+  document
+    .getElementById('time-cards-container')
+    .scrollTo(
+      boundingCurrentTimeCard.left -
+        boundingTimeCardsContainer.width / 2 +
+        boundingCurrentTimeCard.width / 2 -
+        boundingCurrentTimeCard.width / 3,
+      0
+    )
+})
 
 const weatherDataStore = useWeatherDataStore()
 const selectedDay = useState(STATES.selectedDay)

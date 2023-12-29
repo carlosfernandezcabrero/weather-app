@@ -1,9 +1,10 @@
 <template>
   <li
+    :id="`time-card-${Number(hour.split(':')[0])}`"
     class="rounded-md border border-border shadow-lg bg-background p-4 w-44 shrink-0"
   >
     <h5 class="text-center">
-      {{ timeInfo.time.split(' ')[1] }}
+      {{ hour }}
     </h5>
 
     <div class="mt-6">
@@ -31,7 +32,11 @@
 <script setup>
 import { STATES, WEATHER_CODES } from '~/constants'
 
-defineProps(['timeInfo'])
+const {
+  timeInfo: { time }
+} = defineProps(['timeInfo'])
 
 const tempUnit = useState(STATES.temperatureUnit)
+
+const hour = time.split(' ')[1]
 </script>
