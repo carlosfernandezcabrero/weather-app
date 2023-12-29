@@ -3,11 +3,11 @@
     :id="`time-card-${hourNumber}`"
     class="rounded-md border border-border shadow-lg bg-background p-4 w-44 shrink-0"
     :class="{
-      'bg-highlight/10': hourNumber === now
+      'bg-highlight/10': hourNumber === nowHour && dayNumber === nowDay
     }"
   >
     <h5 class="text-center">
-      {{ hour }}
+      {{ time }}
     </h5>
 
     <div class="mt-6">
@@ -36,12 +36,17 @@
 import { STATES, WEATHER_CODES } from '~/constants'
 
 const {
-  timeInfo: { time }
+  timeInfo: { time: datetime }
 } = defineProps(['timeInfo'])
 
 const tempUnit = useState(STATES.temperatureUnit)
 
-const hour = time.split(' ')[1]
-const hourNumber = Number(hour.split(':')[0])
-const now = new Date().getHours()
+const [date, time] = datetime.split(' ')
+
+const dayNumber = Number(date.split('-')[2])
+const hourNumber = Number(time.split(':')[0])
+
+const now = new Date()
+const nowHour = now.getHours()
+const nowDay = now.getDate()
 </script>
