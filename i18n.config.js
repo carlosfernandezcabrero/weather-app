@@ -24,7 +24,9 @@ export default defineI18nConfig(() => ({
       'ambient-temperature': 'Ambient temperature',
       icons: 'Icons by',
       ideas: 'Ideas taken from',
-      language: 'Choose language'
+      language: 'Choose language',
+      detectingLocation: 'Detecting location',
+      loadingData: 'Loading the weather for your location'
     },
     es: {
       title: 'El tiempo',
@@ -48,7 +50,9 @@ export default defineI18nConfig(() => ({
       'ambient-temperature': 'Temperatura ambiente',
       icons: 'Iconos de',
       ideas: 'Ideas cogidas de',
-      language: 'Elige el idioma'
+      language: 'Elige el idioma',
+      detectingLocation: 'Detectando ubicación',
+      loadingData: 'Cargando el tiempo para tu ubicación'
     }
   }
 }))

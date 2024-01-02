@@ -7,10 +7,12 @@ export const useWeatherDataStore = defineStore('weatherData', {
     lng: null,
     currentWeather: null,
     forecast: null,
-    isLocationSet: false
+    dataIsReady: false
   }),
   actions: {
     async refreshData() {
+      this.dataIsReady = false
+
       const [current, forecast] = await Promise.all(
         [
           fetch(
@@ -24,14 +26,14 @@ export const useWeatherDataStore = defineStore('weatherData', {
 
       this.currentWeather = current
       this.forecast = forecast
+
+      this.dataIsReady = true
     },
     async setLocation(lat, lng) {
       this.lat = lat
       this.lng = lng
 
       await this.refreshData()
-
-      this.isLocationSet = true
     }
   },
   getters: {
