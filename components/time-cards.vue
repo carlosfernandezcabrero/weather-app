@@ -16,20 +16,19 @@ import { useWeatherDataStore } from '~/store'
 
 onMounted(() => {
   const now = new Date().getHours()
+
   const $timeCardsContainer = document.getElementById('time-cards-container')
-  const boundingTimeCardsContainer = $timeCardsContainer.getBoundingClientRect()
   const $currentTimeCard = document.getElementById(`time-card-${now}`)
+
+  const boundingTimeCardsContainer = $timeCardsContainer.getBoundingClientRect()
   const boundingCurrentTimeCard = $currentTimeCard.getBoundingClientRect()
+
+  const sides =
+    (boundingTimeCardsContainer.width - boundingCurrentTimeCard.width) / 2
 
   document
     .getElementById('time-cards-container')
-    .scrollTo(
-      boundingCurrentTimeCard.left -
-        boundingTimeCardsContainer.width / 2 +
-        boundingCurrentTimeCard.width / 2 -
-        boundingCurrentTimeCard.width / 3,
-      0
-    )
+    .scrollTo(boundingCurrentTimeCard.left - sides, 0)
 })
 
 const weatherDataStore = useWeatherDataStore()
