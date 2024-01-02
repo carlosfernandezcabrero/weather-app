@@ -5,7 +5,7 @@
     <h1 class="text-xl font-extrabold">Weather App</h1>
 
     <div>
-      <div class="flex items-center text-base font-semibold">
+      <div class="flex items-center text-lg font-semibold">
         <ButtonsGroup :buttons="BUTTONS" />
       </div>
     </div>
