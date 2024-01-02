@@ -26,9 +26,10 @@ onMounted(() => {
   const sides =
     (boundingTimeCardsContainer.width - boundingCurrentTimeCard.width) / 2
 
-  document
-    .getElementById('time-cards-container')
-    .scrollTo(boundingCurrentTimeCard.left - sides, 0)
+  $timeCardsContainer.scrollTo(
+    boundingCurrentTimeCard.left - sides - boundingTimeCardsContainer.left,
+    0
+  )
 })
 
 const weatherDataStore = useWeatherDataStore()
