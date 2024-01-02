@@ -1,10 +1,7 @@
 <template>
   <PageHeader class="max-w-screen-xl w-full mx-auto" />
 
-  <main
-    role="main"
-    class="mt-6 flex flex-col gap-y-24 max-w-screen-xl px-2 w-full mx-auto"
-  >
+  <main role="main" class="mt-6 max-w-screen-xl px-2 w-full mx-auto">
     <slot v-if="isLocationSet" />
     <MainLoader v-else :text="$t('detectingLocation')" />
   </main>

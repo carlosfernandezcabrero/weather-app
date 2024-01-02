@@ -4,7 +4,7 @@
     class="transition-all ease-out duration-700 transform"
     :class="[weatherDataStore.dataIsReady ? 'translate-y-0' : 'translate-y-12']"
   >
-    <div v-if="weatherDataStore.dataIsReady">
+    <div v-if="weatherDataStore.dataIsReady" class="flex flex-col gap-y-24">
       <CurrentDaySection />
       <LazyForecast />
     </div>
