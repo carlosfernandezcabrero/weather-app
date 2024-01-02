@@ -10,7 +10,7 @@
       @click="selectedDay = index"
     >
       <div>
-        <h4 class="text-center">
+        <h3 class="text-center">
           <template v-if="todayEpoch === dayInfo.dateEpoch">{{
             $t('today')
           }}</template>
@@ -20,7 +20,7 @@
           <template v-else>{{
             shortFormatDate(dayInfo.dateEpoch * 1000, weatherStoreData.language)
           }}</template>
-        </h4>
+        </h3>
 
         <div class="mt-6">
           <img
