@@ -15,7 +15,7 @@
         d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"
       />
     </svg>
-    <p class="text-2xl font-bold animate-pulse">
+    <p class="text-2xl font-bold animate-pulse text-center text-balance">
       {{ text }}
     </p>
   </div>
