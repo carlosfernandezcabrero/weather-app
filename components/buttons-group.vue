@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center text-sm font-semibold">
+  <div class="flex items-center text-base font-semibold">
     <button
       v-for="{ text, key } in buttons"
       :key="key"
