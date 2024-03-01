@@ -1,7 +1,7 @@
 <template>
   <iframe
     referrerpolicy="no-referrer-when-downgrade"
-    :src="`https://www.google.com/maps/embed/v1/view?key=${googleMapsApiKey}
+    :src="`https://www.google.com/maps/embed/v1/view?key=${$config.public.googleMapsApiKey}
     &zoom=11&language=es&center=${weatherDataStore.getLocationCoords}&maptype=roadmap`"
     class="w-full h-full rounded-md"
     allowfullscreen
@@ -12,6 +12,5 @@
 <script setup>
 import { useWeatherDataStore } from '~/store'
 
-const { googleMapsApiKey } = useRuntimeConfig().public
 const weatherDataStore = useWeatherDataStore()
 </script>
